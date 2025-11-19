@@ -33,7 +33,7 @@ pip install -r requirements.txt
 </details>
 
 # Jak używać programu
-Najlepiej przygotować plik Excel zawierający jeden arkusz z macierzą korelacji.
+Aby program działał poprawnie należy przygotować plik Excel zawierający <i>jedynie jeden arkusz</i> z macierzą korelacji.
 
 1. Przygotuj w Excelu macierz, która jest w formacie:
 <img width="561" height="206" alt="image" src="https://github.com/user-attachments/assets/a027cd83-25fb-4010-9b44-bf4e47feebb6" />
