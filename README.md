@@ -33,17 +33,17 @@ pip install -r requirements.txt
 </details>
 
 # Jak używać programu
-Najlepiej używać pliku, który ma jeden arkusz z macierzą korelacji.
+Najlepiej przygotować plik Excel zawierający jeden arkusz z macierzą korelacji.
 
 1. Przygotuj w Excelu macierz, która jest w formacie:
 <img width="561" height="206" alt="image" src="https://github.com/user-attachments/assets/a027cd83-25fb-4010-9b44-bf4e47feebb6" />
 
 
-Musi ona zawierać jedną kolumnę z nazwą Y - będzie to zmienna objaśniana.
+Musi ona zawierać jedną kolumnę z nazwą `Y` - będzie to zmienna objaśniana.
 
 2. Uruchom <b><i>Hellwig.exe.</i></b>
 
-3. Upewnij się że excel w którym znajduje się macierz korelacji jest zamknięty przed uruchomieniem obliczeń
+3. Upewnij się że excel w którym znajduje się macierz korelacji jest zamknięty przed uruchomieniem obliczeń.
 
 4. Wybierz plik excel i kliknij <i>Uruchom Metodę Hellwiga.</i>
 
