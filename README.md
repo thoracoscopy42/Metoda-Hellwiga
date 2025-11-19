@@ -18,7 +18,7 @@ Celem programu jest ułatwienie studentom i badaczom wyboru optymalnych zmiennyc
    
 3. Umieść plik <i>Hellwig.exe.</i> w dowolnym folderze.
 
-Do użytkowania programu nie trzeba, poza samym plikiem <b><i>Hellwig.exe</i></b> nic pobierać ani instalować - jest gotowy do użycia od razu.
+Do użytkowania programu nie trzeba, poza samym plikiem <b><i>Hellwig.exe</i></b> nic pobierać, ani instalować - jest gotowy do użycia od razu.
 
 <details>
 <summary><strong> (Opcjonalnie) uruchomienie wersji źródłowej</strong></summary>
@@ -43,7 +43,7 @@ Musi ona zawierać jedną kolumnę z nazwą `Y` - będzie to zmienna objaśniana
 
 2. Uruchom <b><i>Hellwig.exe.</i></b>
 
-3. Upewnij się że excel w którym znajduje się macierz korelacji jest zamknięty przed uruchomieniem obliczeń.
+3. Upewnij się, że excel w którym znajduje się macierz korelacji jest zamknięty przed uruchomieniem obliczeń.
 
 4. Wybierz plik excel i kliknij <i>Uruchom Metodę Hellwiga.</i>
 
