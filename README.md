@@ -12,7 +12,7 @@ $$H_k = \sum_{j \in L_k} h_{kj}$$
 Celem programu jest ułatwienie studentom i badaczom wyboru optymalnych zmiennych objaśniających do modeli statystycznych poprzez automatyzację tejże metody.
 
 # Instalacja
-1. Pobierz najnowszą wersję programu z zakładki <b>Releases</b>, w sekcji **Assets** znajduje się plik wykonywalny <i>Hellwig.exe.</i>.
+1. Pobierz najnowszą wersję programu z zakładki <b>Releases</b>, w sekcji **Assets** znajduje się plik wykonywalny <i>Hellwig.exe.</i>
 
    <img width="311" height="152" alt="image" src="https://github.com/user-attachments/assets/67489025-5219-4014-b0bc-f828a14d329e" />
    
