@@ -37,12 +37,12 @@ pip install -r requirements.txt
 Aby program działał poprawnie należy przygotować plik Excel zawierający <b><i>jedynie jeden arkusz</i></b> z macierzą korelacji.
 
 1. Przygotuj w Excelu macierz, która jest w formacie:
-<img width="561" height="206" alt="image" src="https://github.com/user-attachments/assets/a027cd83-25fb-4010-9b44-bf4e47feebb6" />
-
+   
+<img width="655" height="211" alt="image" src="https://github.com/user-attachments/assets/18c68e68-62a0-4c56-80e2-cac03182b325" />
 
 Musi ona zawierać jedną kolumnę z nazwą `Y` - będzie to zmienna objaśniana.
 
-2. Uruchom <b><i>Hellwig.exe.</i></b>
+2. Uruchom <b><i>Metoda_Hellwiga.exe.</i></b>
 
 3. Upewnij się, że excel w którym znajduje się macierz korelacji jest zamknięty przed uruchomieniem obliczeń.
 
