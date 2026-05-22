@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import itertools as it
 from pathlib import Path
 from openpyxl import load_workbook
@@ -16,17 +17,47 @@ Hellwig Method Integral Capacity Calculation
 
 
 """
+
+
+def clean_label(label):
+    if pd.isna(label):
+        return ""
+    return str(label).strip().replace(" ", "_").upper()
+
+
 def check_y_column(df):
 
-    # formatting fixes
-    df.columns = [col.strip() for col in df.columns]
-    df.columns = [col.replace(" ", "_") for col in df.columns]
-    df.columns = [col.upper() for col in df.columns]
-    df.index = df.columns # set index same as columns
-    # check for Y
-    if 'Y' not in df.columns:
+    df = df.dropna(how="all").dropna(axis=1, how="all")
+
+    df.columns = [clean_label(col) for col in df.columns]
+    df.index = [clean_label(idx) for idx in df.index]
+
+    df = df.loc[
+        [idx for idx in df.index if idx != ""],
+        [col for col in df.columns if col != ""]
+    ]
+
+    if "Y" not in df.columns:
         raise ValueError("Kolumna Y jest potrzebna do obliczenia pojemności integralnej.")
-    
+
+    if "Y" not in df.index:
+        raise ValueError("Wiersz Y jest potrzebny do obliczenia pojemności integralnej.")
+
+    common_labels = [col for col in df.columns if col in df.index]
+    df = df.loc[common_labels, common_labels]
+
+    df = df.apply(lambda col: pd.to_numeric(col, errors="coerce"))
+
+    df = df.combine_first(df.T)
+
+    if not np.allclose(df.values, df.T.values, equal_nan=True):
+        raise ValueError(
+            "Macierz korelacji nie jest symetryczna. "
+            "Sprawdź, czy wartości nad i pod przekątną są takie same."
+        )
+
+    np.fill_diagonal(df.values, 1.0)
+
     return df
     
 def separate_x_y(df):
@@ -41,17 +72,30 @@ def separate_x_y(df):
 
 
 def calculate_integral_capacity(R, R0):
-    H_values = {} # dictionary to store integral capacities for each combination
+    H_values = {}
 
-    for size in range(1, len(R.columns) + 1): # all combination sizes
-        for combo in it.combinations(R.columns, size): # all combinations of that size
-            H_sum = 0 # sum of integral capacities for current combination
-            R_subset = R.loc[list(combo), list(combo)] # current combination subset
+    for size in range(1, len(R.columns) + 1):
+        for combo in it.combinations(R.columns, size):
+            combo = list(combo)
+            R_subset = R.loc[combo, combo]
+
+            if R_subset.isna().any().any():
+                continue
+
+            H_sum = 0
+
             for j in combo:
-                denom = sum(abs(R_subset.loc[j, i]) for i in combo)
-                H_j = R0[j] / denom 
+                denom = R_subset.loc[j, combo].abs().sum()
+
+                if pd.isna(denom) or denom == 0:
+                    H_sum = None
+                    break
+
+                H_j = R0[j] / denom
                 H_sum += H_j
-            H_values[combo] = H_sum
+
+            if H_sum is not None:
+                H_values[tuple(combo)] = H_sum
 
     return H_values
 
@@ -109,7 +153,7 @@ def run_hellwig():
         app.update_idletasks()
 
         # core
-        df = pd.read_excel(filepath, sheet_name=0)
+        df = pd.read_excel(filepath, sheet_name=0, index_col=0)
         df = check_y_column(df)
         R, R0 = separate_x_y(df)
         H_values = calculate_integral_capacity(R, R0)
