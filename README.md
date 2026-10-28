@@ -16,7 +16,7 @@ Celem programu jest ułatwienie studentom i badaczom wyboru optymalnych zmiennyc
 
    <img width="311" height="152" alt="image" src="https://github.com/user-attachments/assets/67489025-5219-4014-b0bc-f828a14d329e" />
 
-   lub z linka: https://github.com/thoracoscopy42/Metoda-Hellwiga/releases/download/v1.0.1/Hellwig.exe
+   lub z linka: https://github.com/thoracoscopy42/Metoda-Hellwiga/releases/download/v1.0.1/Metoda_Hellwiga.exe
 3. Umieść plik <i>Hellwig.exe.</i> w dowolnym folderze.
 
 Do użytkowania programu nie trzeba, poza samym plikiem <b><i>Hellwig.exe</i></b> nic pobierać, ani instalować - jest gotowy do użycia od razu.
